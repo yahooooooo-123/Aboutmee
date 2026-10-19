@@ -1,0 +1,303 @@
+/* ================================================================
+   style.css — Aboutmee (dark, neon, animasi)
+   ================================================================ */
+
+/* ---------- VARIABEL WARNA ---------- */
+:root {
+  --bg:    #0b0b0f;
+  --card:  #14141a;
+  --line:  #2a2a33;
+  --text:  #e6e6e4;
+  --dim:   #8b8b95;
+  --neon:  #9be7ff;
+  --neon2: #ff9be7;
+}
+
+/* ---------- DASAR ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+/* ---------- ANIMASI ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim {
+  animation: fadeUp 0.9s ease both;
+}
+
+/* delay bertingkat */
+.anim:nth-child(1) { animation-delay: 0.1s; }
+.anim:nth-child(2) { animation-delay: 0.25s; }
+.anim:nth-child(3) { animation-delay: 0.4s; }
+.anim:nth-child(4) { animation-delay: 0.55s; }
+.anim:nth-child(5) { animation-delay: 0.7s; }
+.anim:nth-child(6) { animation-delay: 0.85s; }
+
+/* ---------- TEKS NEON ---------- */
+.neon-title {
+  color: #fff;
+  text-shadow:
+    0 0 8px  var(--neon),
+    0 0 20px var(--neon),
+    0 0 45px var(--neon),
+    0 0 80px var(--neon2);
+}
+
+.neon-sub {
+  color: var(--neon);
+  text-shadow:
+    0 0 6px var(--neon),
+    0 0 16px var(--neon);
+}
+
+@keyframes pulsa {
+  0%, 100% {
+    text-shadow:
+      0 0 8px  var(--neon),
+      0 0 20px var(--neon),
+      0 0 45px var(--neon);
+  }
+  50% {
+    text-shadow:
+      0 0 12px var(--neon),
+      0 0 30px var(--neon),
+      0 0 65px var(--neon2);
+  }
+}
+
+/* ---------- 1. HEADER ---------- */
+.header {
+  text-align: center;
+  padding: 80px 20px 50px;
+}
+
+.header h1 {
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  font-weight: normal;
+  letter-spacing: 3px;
+  animation: pulsa 4s ease-in-out infinite;
+}
+
+.header-sub {
+  margin-top: 14px;
+  color: var(--dim);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 14px;
+  font-weight: normal;
+}
+
+.card p {
+  margin-bottom: 10px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 2. ABOUT ---------- */
+.about {
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+/* ---------- 3. SKY ---------- */
+.sky {
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+.sky-quote {
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* ---------- 4. MUSIC ---------- */
+.music {
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+.music-note {
+  color: var(--dim);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.track-list {
+  list-style: none;
+}
+
+.track-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.track-list li:last-child {
+  border-bottom: none;
+}
+
+.track-num {
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  font-size: 14px;
+  letter-spacing: 2px;
+  min-width: 28px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.track-artist {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.track-title {
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ---------- 5. THOUGHTS ---------- */
+.thoughts {
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+.thought-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.thought-item {
+  background: rgba(42, 42, 51, 0.4);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.thought-item:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 20px rgba(155, 231, 255, 0.08);
+}
+
+.thought-num {
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  font-size: 12px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.thought-item p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ---------- 6. CONTACT ---------- */
+.contact {
+  max-width: 760px;
+  margin: 0 auto 40px;
+}
+
+.links {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.neon-link {
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.neon-link:hover {
+  color: #fff;
+  text-shadow:
+    0 0 10px var(--neon),
+    0 0 25px var(--neon2);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 34px 20px 60px;
+  border-top: 1px solid var(--line);
+}
+
+.footer .neon-sub {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.footer-dim {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+  .thought-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header {
+    padding: 55px 16px 40px;
+  }
+}
